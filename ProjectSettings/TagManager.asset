@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - EvilSquare
+=======
+  - Bullet
+  - Wall
+>>>>>>> 64f5608c97343667c53a9f82ce7e6cc6d63f70de
   layers:
   - Default
   - TransparentFX
