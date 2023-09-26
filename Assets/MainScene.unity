@@ -513,11 +513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1743344229861124912, guid: 5271c278def27db4e8ccb0270c501e68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.25
+      value: 8.84
       objectReference: {fileID: 0}
     - target: {fileID: 1743344229861124912, guid: 5271c278def27db4e8ccb0270c501e68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1743344229861124912, guid: 5271c278def27db4e8ccb0270c501e68, type: 3}
       propertyPath: m_LocalPosition.z
@@ -749,11 +749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1743344229861124912, guid: 5271c278def27db4e8ccb0270c501e68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.28
+      value: -8.84
       objectReference: {fileID: 0}
     - target: {fileID: 1743344229861124912, guid: 5271c278def27db4e8ccb0270c501e68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 1743344229861124912, guid: 5271c278def27db4e8ccb0270c501e68, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1215,7 +1215,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!114 &1869043327
 MonoBehaviour:
   m_ObjectHideFlags: 0
