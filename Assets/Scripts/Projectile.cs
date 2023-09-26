@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed = 5f;
-    [SerializeField] private float lifeTime = 1f;
+    //[SerializeField] private float lifeTime = 1f;
     private Rigidbody2D rb;
     
     // Start is called before the first frame update
@@ -13,8 +14,9 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = direction.normalized * projectileSpeed;
-        Destroy(this.gameObject, lifeTime);
-        Debug.Log("PROJECTILE REMOVED BECAUSE IT HIT NO ENEMIES!!!");
+        //Destroy(this.gameObject, lifeTime);
+        //Debug.Log("PROJECTILE REMOVED BECAUSE IT HIT NO ENEMIES!!!");
+        
     }
 
     /* //Commented out until we have enemies to shoot at
@@ -30,4 +32,14 @@ public class Projectile : MonoBehaviour
         }
     }
     */
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EvilSquare"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            Debug.Log("Projectile destroyed evil square!");
+        }
+    }
 }
