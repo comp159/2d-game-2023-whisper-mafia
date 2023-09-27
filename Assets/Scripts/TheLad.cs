@@ -1,29 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TheLad : MonoBehaviour
 {
-    public float speed = 10f;
-    public Rigidbody2D lad;
-
-
+    [SerializeField] private float speed = 10f;
+    private Rigidbody2D _lad;
+    
     // Start is called before the first frame update
     void Start()
     {
-        lad = GetComponent<Rigidbody2D>();
+        _lad = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float userInput = Input.GetAxis("Horizontal");
-        if (userInput != 0) {
-            Vector2 velocity = new Vector2(userInput * speed, 0);
-            lad.velocity = velocity;
+        var userInput = Input.GetAxis("Horizontal");
+        var velocity = new Vector2(0, 0);
+        
+        if (userInput != 0)
+        {
+            velocity.x = userInput * speed;
         }
-        else {
-            lad.velocity = Vector2.zero;
-        }
+
+        _lad.velocity = velocity;
+
+
+        print(_lad.velocity);
     }
 }
