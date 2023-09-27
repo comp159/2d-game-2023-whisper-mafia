@@ -23,8 +23,5 @@ public class TheLad : MonoBehaviour
         }
 
         _lad.velocity = velocity;
-
-
-        print(_lad.velocity);
     }
 }
