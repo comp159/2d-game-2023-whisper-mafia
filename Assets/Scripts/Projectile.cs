@@ -45,11 +45,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("EvilSquare"))
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-            Debug.Log("Projectile destroyed evil square!");
-        }
+        if (!collision.gameObject.CompareTag("Enemy")) return;
+        
+        Destroy(collision.gameObject);
+        Destroy(gameObject);
+        Debug.Log("Projectile destroyed evil square!");
     }
 }
