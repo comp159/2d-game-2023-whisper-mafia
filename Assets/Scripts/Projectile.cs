@@ -7,7 +7,6 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float projectileSpeed = 5f;
-    //[SerializeField] private float lifeTime = 1f;
     private Rigidbody2D rb;
     
     // Start is called before the first frame update
@@ -49,6 +48,5 @@ public class Projectile : MonoBehaviour
         
         Destroy(collision.gameObject);
         Destroy(gameObject);
-        Debug.Log("Projectile destroyed evil square!");
     }
 }
