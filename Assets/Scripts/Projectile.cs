@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
     }
     */
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Enemy")) return;
         
