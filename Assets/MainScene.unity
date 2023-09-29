@@ -822,7 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightRange: 2
   widthRange: 7
-  spawnDelay: 0.5
+  spawnDelay: 1
   maxEnemyCount: 10
   enemy: {fileID: 8117604952305232278, guid: 0e456af2420c9c932abc51342ba855ee, type: 3}
 --- !u!1 &1752955012
