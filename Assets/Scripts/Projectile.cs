@@ -13,11 +13,13 @@ public class Projectile : MonoBehaviour
     
     [SerializeField] private float projectileSpeed = 5f;
     private Rigidbody2D rb;
+    private GameManager gm;
     
     private int collisionCount = 0;
     
-    public void Initialize(Vector2 direction)
+    public void Initialize(Vector2 direction, GameManager gm)
     {
+        this.gm = gm;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = direction.normalized * projectileSpeed;
     }
@@ -26,6 +28,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            gm.IncreaseScore();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

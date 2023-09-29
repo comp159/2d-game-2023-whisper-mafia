@@ -8,8 +8,16 @@ public class ShootingControls : MonoBehaviour
     
     [SerializeField] private Transform shootingPoint;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject gameState;
+
+    private GameManager gameManager;
 
     private const int maxProjectilesOnScreen = 5; //Maximum number of projectiles allowed on screen
+
+    void Start()
+    {
+        gameManager = gameState.GetComponent<GameManager>();
+    }
     
     void Update()
     {
@@ -32,7 +40,7 @@ public class ShootingControls : MonoBehaviour
         //Create an instance of the projectile being fired in the direction of the cursor
         GameObject projectile = Instantiate(projectilePrefab, shootingPoint.position, Quaternion.identity);
         Projectile projectileScript = projectile.GetComponent<Projectile>();
-        projectileScript.Initialize(shootingDirection);
+        projectileScript.Initialize(shootingDirection, gameManager);
     }
 
     private int BulletCount()
