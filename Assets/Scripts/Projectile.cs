@@ -5,35 +5,40 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    //UPDATE (Continued): Add player momentum to projectile speed for a faster projectile
+    //[UPDATE] 9-28-2023 - Spoke with Brian in-person about this mechanic. Due to the time constraints, this idea will be scrapped.
+    
+    //UPDATE (Continued): Allow projectile to only bounce ONCE on a 2D collider object. The next 2D collider destroys the projectile.
+    //[UPDATE] 9-28-2023 --> Completed [We can increase the bounce limit by changing the second if statement to whatever value desired]
+    
     [SerializeField] private float projectileSpeed = 5f;
     private Rigidbody2D rb;
     
-    // Start is called before the first frame update
+    private int collisionCount = 0;
+    
     public void Initialize(Vector2 direction)
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = direction.normalized * projectileSpeed;
     }
 
-    /* //Commented out until we have enemies to shoot at
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Insert enemy class name:
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemy.Damange(0); //set the amount of damage
-            Destroy(gameObject); //Destroy projectile once collides with enemy sprite
-            Debug.Log("BULLET HIT ENEMY AND WAS DESTROYED!!!");
-        }
-    }
-    */
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Enemy")) return;
-        
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else
+        {
+            //If projectile doesn't hit a game object with the Enemy tag, the collision count increments
+            collisionCount++;
+        }
+
+        //If the projectile's collision count is 2 or more, it's destroyed
+        if (collisionCount >= 2)
+        {
+            Destroy(gameObject);
+        }
     }
 }
