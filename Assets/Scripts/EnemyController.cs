@@ -24,8 +24,8 @@ public class EnemyController : MonoBehaviour
     private void SpawnEnemy()
     {
         // Spawn Enemy at random coords
-        var position = new Vector2(Random.Range(-widthRange, widthRange),
-            Random.Range(-heightRange + 2, heightRange + 2));
+        var position = new Vector2(Random.Range(-widthRange * 1f, widthRange * 1f),
+            Random.Range(-heightRange + 2f, heightRange + 2f));
         Instantiate(enemy, position, Quaternion.identity);
         _enemyCount++;
         
