@@ -32,6 +32,14 @@ public class TheLad : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Projectile"))
         {
             Destroy(this.gameObject);
+            GameObject gameObj =  GameObject.FindGameObjectWithTag("GameManager");
+
+			GameManager targetScript = gameObj.GetComponent<GameManager>();
+			if (targetScript != null)
+			{
+				// Call a function on the target script
+				targetScript.GameOver();
+			}
         }
     }
 }
