@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 521088491}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.84, y: 0.01, z: 0}
+  m_LocalPosition: {x: 8.13, y: 0.04, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -673,7 +673,7 @@ Transform:
   m_GameObject: {fileID: 1632758605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.83, y: -0.05, z: 0}
+  m_LocalPosition: {x: -8.07, y: 0.02, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -823,7 +823,7 @@ MonoBehaviour:
   heightRange: 2
   widthRange: 7
   spawnDelay: 1
-  maxEnemyCount: 10
+  maxEnemyCount: -1
   enemy: {fileID: 8117604952305232278, guid: 0e456af2420c9c932abc51342ba855ee, type: 3}
 --- !u!1 &1752955012
 GameObject:
