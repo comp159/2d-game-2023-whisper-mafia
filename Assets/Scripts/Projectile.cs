@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -10,13 +11,22 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     
     // Start is called before the first frame update
+    private GameObject player;
+    private Rigidbody2D playerRB;
+
+    private int collisionCount = 0;
+    
     public void Initialize(Vector2 direction)
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = direction.normalized * projectileSpeed;
-        //Destroy(this.gameObject, lifeTime);
-        //Debug.Log("PROJECTILE REMOVED BECAUSE IT HIT NO ENEMIES!!!");
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerRB = player.GetComponent<Rigidbody2D>();
         
+        rb = GetComponent<Rigidbody2D>();
+        var modifiedDirection = direction.normalized;
+        
+        modifiedDirection.x += playerRB.velocity.x / projectileSpeed;
+        rb.velocity = modifiedDirection * projectileSpeed;
+        print(rb.velocity);
     }
 
     /* //Commented out until we have enemies to shoot at
