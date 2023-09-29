@@ -26,4 +26,12 @@ public class TheLad : MonoBehaviour
         
         lad.velocity = velocity;
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Projectile"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
