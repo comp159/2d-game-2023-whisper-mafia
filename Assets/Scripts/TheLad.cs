@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TheLad : MonoBehaviour
 {
-    public float speed = 10f;
-    public Rigidbody2D lad;
+    [SerializeField] private float speed = 10f;
+    private Rigidbody2D lad;
 
 
     // Start is called before the first frame update
@@ -17,13 +17,13 @@ public class TheLad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float userInput = Input.GetAxis("Horizontal");
-        if (userInput != 0) {
-            Vector2 velocity = new Vector2(userInput * speed, 0);
-            lad.velocity = velocity;
+        var userInput = Input.GetAxis("Horizontal");
+        var velocity = new Vector2(0, 0);
+        if (userInput != 0)
+        {
+            velocity.x = userInput * speed;
         }
-        else {
-            lad.velocity = Vector2.zero;
-        }
+        
+        lad.velocity = velocity;
     }
 }
