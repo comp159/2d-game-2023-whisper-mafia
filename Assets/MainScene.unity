@@ -778,6 +778,7 @@ MonoBehaviour:
   heightRange: 2
   widthRange: 7
   spawnDelay: 0.5
+  maxEnemyCount: 10
   enemy: {fileID: 8117604952305232278, guid: 0e456af2420c9c932abc51342ba855ee, type: 3}
 --- !u!1 &1752955012
 GameObject:
@@ -924,7 +925,7 @@ GameObject:
   - component: {fileID: 1869043329}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1010,7 +1011,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  lad: {fileID: 0}
 --- !u!50 &1869043328
 Rigidbody2D:
   serializedVersion: 4
