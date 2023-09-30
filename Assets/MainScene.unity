@@ -1375,7 +1375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -395, y: 228}
+  m_AnchoredPosition: {x: 0, y: 228}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670961957
@@ -1522,6 +1522,7 @@ MonoBehaviour:
   heightRange: 2
   widthRange: 5
   spawnDelay: 1
+  gameManager: {fileID: 1280911423}
   maxEnemyCount: -1
   enemy: {fileID: 8117604952305232278, guid: 0e456af2420c9c932abc51342ba855ee, type: 3}
 --- !u!1 &1746386628

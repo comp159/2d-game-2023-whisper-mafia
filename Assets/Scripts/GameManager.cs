@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private int score;
 	[SerializeField] private TextMeshProUGUI gameOverText;
 	[SerializeField] private Button gameOverButton;
-	//private bool gameOver = false;
+	private bool gameOver = false;
 void Start(){
 
 		gameOverText.gameObject.SetActive(false);
@@ -34,14 +34,19 @@ void Start(){
 	public void GameOver(){
 		gameOverText.gameObject.SetActive(true);
 		gameOverButton.gameObject.SetActive(true);
-		//gameOver = true;
+		gameOver = true;
+
+		//Deleting Existing Enemys
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach(GameObject enemy in enemies){
+			Destroy(enemy);
+		}
 	}
 	public void RestartGame() {
 	    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
-
-
-
-
+	public bool getGameOver(){
+		return gameOver;
+	}
 }
 

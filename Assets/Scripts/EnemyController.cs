@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int widthRange = 7;
     
     [SerializeField] private float spawnDelay = 2f;
+	[SerializeField] private GameManager gameManager;
     
     [SerializeField] private int maxEnemyCount = 10;
     private int _enemyCount = 0;
@@ -34,7 +35,7 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        while (maxEnemyCount < 0 || _enemyCount < maxEnemyCount)
+        while ((maxEnemyCount < 0 || _enemyCount < maxEnemyCount) && !gameManager.getGameOver())
         {
             SpawnEnemy();
             yield return new WaitForSeconds(spawnDelay);
