@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI scoreCounter;
 
     private int score;
 	[SerializeField] private TextMeshProUGUI gameOverText;
@@ -22,7 +24,7 @@ void Start(){
     public void IncreaseScore()
     {
         score++;
-        print(score);
+        scoreCounter.text = score.ToString();
     }
 
     public void ResetScore()
@@ -42,3 +44,4 @@ void Start(){
 
 
 }
+
