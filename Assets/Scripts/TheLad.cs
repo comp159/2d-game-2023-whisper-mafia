@@ -6,18 +6,22 @@ public class TheLad : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     private Rigidbody2D lad;
+    private SpriteRenderer ladSprite;
 
 
     // Start is called before the first frame update
     void Start()
     {
         lad = GetComponent<Rigidbody2D>();
+        ladSprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         var userInput = Input.GetAxis("Horizontal");
+        /* Player Movement */
+        
         var velocity = new Vector2(0, 0);
         if (userInput != 0)
         {
@@ -25,6 +29,17 @@ public class TheLad : MonoBehaviour
         }
         
         lad.velocity = velocity;
+
+        /* Sprite Flipping */
+
+        if (velocity.x > 0)
+        {
+            ladSprite.flipX = true;
+        }
+        else if (velocity.x < 0)
+        {
+            ladSprite.flipX = false;
+        } 
     }
 
     void OnCollisionEnter2D(Collision2D other)
