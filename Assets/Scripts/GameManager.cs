@@ -41,6 +41,11 @@ void Start(){
 	public void RestartGame() {
 	    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
+
+	public void GoToMainMenu()
+	{
+		SceneManager.LoadScene("MainMenuScene");
+	}
 	public bool getGameOver(){
 		return gameOver;
 	}
