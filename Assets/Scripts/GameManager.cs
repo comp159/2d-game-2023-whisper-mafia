@@ -12,19 +12,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreCounter;
 
     private int score;
-	[SerializeField] private TextMeshProUGUI gameOverText;
-	[SerializeField] private Button gameOverButton;
+    [SerializeField] private GameObject gameOverObject;
 	private bool gameOver = false;
 
 	[SerializeField] private TextMeshProUGUI arrowCounter;
 	private int maxArrowCount = 5;
-	private int currentArrowCount;
+	private int currentArrowCount = 5;
 	
 void Start(){
-
-		gameOverText.gameObject.SetActive(false);
-		gameOverButton.gameObject.SetActive(false);
-		currentArrowCount = 5;
 		arrowCounter.text = currentArrowCount.ToString();
 }
 
@@ -33,14 +28,8 @@ void Start(){
         score++;
         scoreCounter.text = score.ToString();
     }
-
-    public void ResetScore()
-    {
-        score = 0;
-    }
 	public void GameOver(){
-		gameOverText.gameObject.SetActive(true);
-		gameOverButton.gameObject.SetActive(true);
+		gameOverObject.gameObject.SetActive(true);
 		gameOver = true;
 
 		//Deleting Existing Enemys
@@ -59,22 +48,17 @@ void Start(){
 	//Function decrements currentArrowCount
 	public void ArrowShot()
 	{
-		if (currentArrowCount > 0)
-		{
-			currentArrowCount--;
-			arrowCounter.text = currentArrowCount.ToString();
-
-		}
+		if (currentArrowCount <= 0) return;
+		currentArrowCount--;
+		arrowCounter.text = currentArrowCount.ToString();
 	}
 
 	//Function increases currentArrowCount
 	public void DestroyArrow()
 	{
-		if (currentArrowCount < maxArrowCount)
-		{
-			currentArrowCount++;
-			arrowCounter.text = currentArrowCount.ToString();
-		}
+		if (currentArrowCount >= maxArrowCount) return;
+		currentArrowCount++;
+		arrowCounter.text = currentArrowCount.ToString();
 	}
 }
 
