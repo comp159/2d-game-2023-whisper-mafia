@@ -5,12 +5,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //UPDATE (Continued): Add player momentum to projectile speed for a faster projectile
-    //[UPDATE] 9-28-2023 - Spoke with Brian in-person about this mechanic. Due to the time constraints, this idea will be scrapped.
-    
-    //UPDATE (Continued): Allow projectile to only bounce ONCE on a 2D collider object. The next 2D collider destroys the projectile.
-    //[UPDATE] 9-28-2023 --> Completed [We can increase the bounce limit by changing the second if statement to whatever value desired]
-    
     [SerializeField] private float projectileSpeed = 5f;
     private Rigidbody2D rb;
     private GameManager gm;
@@ -36,7 +30,7 @@ public class Projectile : MonoBehaviour
             gm.IncreaseScore();
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            gm.DestroyArrow(); //Increases currentArrowcount by 1
+            gm.DestroyArrow(); //Increases currentArrowCount by 1
         }
         else
         {

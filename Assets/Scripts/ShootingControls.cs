@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ShootingControls : MonoBehaviour
 {
-    //UPDATE NOTES - 27 SEPT 2023: Limit the number of projectiles on screen to five --> Completed [I'm open to increase the limit or remove this all together]
-    
     [SerializeField] private Transform shootingPoint;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject gameState;
