@@ -17,6 +17,11 @@ public class Projectile : MonoBehaviour
     
     private int collisionCount = 0;
     
+    void Start()
+    {
+        gm.GetComponent<GameManager>();
+    }
+
     public void Initialize(Vector2 direction, GameManager gm)
     {
         this.gm = gm;
@@ -31,6 +36,7 @@ public class Projectile : MonoBehaviour
             gm.IncreaseScore();
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            gm.DestroyArrow(); //Increases currentArrowcount by 1
         }
         else
         {
@@ -42,6 +48,7 @@ public class Projectile : MonoBehaviour
         if (collisionCount >= 2)
         {
             Destroy(gameObject);
+            gm.DestroyArrow(); //Increases currentArrowCount by 1
         }
     }
 }

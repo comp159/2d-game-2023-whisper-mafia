@@ -15,10 +15,17 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI gameOverText;
 	[SerializeField] private Button gameOverButton;
 	private bool gameOver = false;
+
+	[SerializeField] private TextMeshProUGUI arrowCounter;
+	private int maxArrowCount = 5;
+	private int currentArrowCount;
+	
 void Start(){
 
 		gameOverText.gameObject.SetActive(false);
 		gameOverButton.gameObject.SetActive(false);
+		currentArrowCount = 5;
+		arrowCounter.text = currentArrowCount.ToString();
 }
 
     public void IncreaseScore()
@@ -47,6 +54,27 @@ void Start(){
 	}
 	public bool getGameOver(){
 		return gameOver;
+	}
+
+	//Function decrements currentArrowCount
+	public void ArrowShot()
+	{
+		if (currentArrowCount > 0)
+		{
+			currentArrowCount--;
+			arrowCounter.text = currentArrowCount.ToString();
+
+		}
+	}
+
+	//Function increases currentArrowCount
+	public void DestroyArrow()
+	{
+		if (currentArrowCount < maxArrowCount)
+		{
+			currentArrowCount++;
+			arrowCounter.text = currentArrowCount.ToString();
+		}
 	}
 }
 

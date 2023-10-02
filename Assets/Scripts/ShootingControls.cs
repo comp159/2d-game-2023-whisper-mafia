@@ -14,6 +14,8 @@ public class ShootingControls : MonoBehaviour
 
     private const int maxProjectilesOnScreen = 5; //Maximum number of projectiles allowed on screen
 
+    private GameManager gm;
+
     void Start()
     {
         gameManager = gameState.GetComponent<GameManager>();
@@ -41,6 +43,7 @@ public class ShootingControls : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, shootingPoint.position, Quaternion.identity);
         Projectile projectileScript = projectile.GetComponent<Projectile>();
         projectileScript.Initialize(shootingDirection, gameManager);
+        gameManager.ArrowShot(); //Decrements currentArrowCount by 1
     }
 
     private int BulletCount()
