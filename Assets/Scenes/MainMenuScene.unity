@@ -594,7 +594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Brian Ngo, Ethan Donley, Simon Shoppe,
+  m_text: 'Brian Ngo, Ethan Donley, Simon Schoppe,
 
     Tanish Kogta, David Yang'
   m_isRightToLeft: 0
