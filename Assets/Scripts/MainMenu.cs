@@ -10,4 +10,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
+    public void OpenControls()
+    {
+        SceneManager.LoadScene("Scenes/Controls");
+    }
+
 }
