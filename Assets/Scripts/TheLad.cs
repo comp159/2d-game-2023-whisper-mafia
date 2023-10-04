@@ -9,6 +9,8 @@ public class TheLad : MonoBehaviour
     private Rigidbody2D lad;
     private SpriteRenderer ladSprite;
 
+    private bool canMove = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class TheLad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) return;
         var userInput = Input.GetAxis("Horizontal");
         /* Player Movement */
         
@@ -49,18 +52,21 @@ public class TheLad : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Projectile"))
-        {   
-            animator.SetBool("isdead", true);
-            Destroy(this.gameObject);
-            GameObject gameObj =  GameObject.FindGameObjectWithTag("GameManager");
+        if (!other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("Projectile")) return;
+        canMove = false;
+        animator.SetBool("isdead", true);
+    }
 
-			GameManager targetScript = gameObj.GetComponent<GameManager>();
-			if (targetScript != null)
-			{
-				// Call a function on the target script
-				targetScript.GameOver();
-			}
+    public void KillPlayer()
+    {
+        Destroy(this.gameObject);
+        GameObject gameObj =  GameObject.FindGameObjectWithTag("GameManager");
+
+        GameManager targetScript = gameObj.GetComponent<GameManager>();
+        if (targetScript != null)
+        {
+            // Call a function on the target script
+            targetScript.GameOver();
         }
     }
 }
