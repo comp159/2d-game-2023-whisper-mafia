@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TheLad : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] private float speed = 10f;
     private Rigidbody2D lad;
     private SpriteRenderer ladSprite;
@@ -29,6 +30,9 @@ public class TheLad : MonoBehaviour
         }
         
         lad.velocity = velocity;
+
+        /*animations*/
+        animator.SetFloat("speedx", Mathf.Abs(userInput));
 
         /* Sprite Flipping */
 
