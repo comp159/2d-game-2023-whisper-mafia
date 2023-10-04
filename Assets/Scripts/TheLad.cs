@@ -50,7 +50,8 @@ public class TheLad : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Projectile"))
-        {
+        {   
+            animator.SetBool("isdead", true);
             Destroy(this.gameObject);
             GameObject gameObj =  GameObject.FindGameObjectWithTag("GameManager");
 
