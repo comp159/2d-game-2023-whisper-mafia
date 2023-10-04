@@ -33,6 +33,7 @@ public class TheLad : MonoBehaviour
 
         /*animations*/
         animator.SetFloat("speedx", Mathf.Abs(userInput));
+        animator.SetBool("isshooting", Input.GetMouseButtonDown(0));
 
         /* Sprite Flipping */
 
