@@ -35,6 +35,7 @@ public class TheLad : MonoBehaviour
         lad.velocity = velocity;
 
         /*animations*/
+        //if (!animator.GetBool("isdead")) return;
         animator.SetFloat("speedx", Mathf.Abs(userInput));
         animator.SetBool("isshooting", Input.GetMouseButtonDown(0));
 
@@ -53,7 +54,7 @@ public class TheLad : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if (!other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("Projectile")) return;
-        canMove = false;
+        canMove = animator.GetBool("isshooting");
         animator.SetBool("isdead", true);
     }
 
